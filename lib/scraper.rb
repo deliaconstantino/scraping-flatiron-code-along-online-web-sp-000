@@ -14,6 +14,10 @@ class Scraper
     doc.css(".post").first.css(".date").text #schedule of ind course offering (first course)
     doc.css(".post").first.css("p").text #description of first course
 
+    doc.css(".post").each do |post|
+      course = Course.new
+      course.title = 
+    end
 
   end
 
