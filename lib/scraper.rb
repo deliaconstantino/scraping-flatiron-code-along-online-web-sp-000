@@ -11,7 +11,8 @@ class Scraper
     # binding.pry
     doc.css(".post") #collection of course offerings--returns like an array
     doc.css(".post").first.css("h2").text #title of ind course offering--first bc using first to get first element of our nokogiri "array"
-    
+    doc.css(".post").first.css(".date").text #schedule of ind course offering (first course)
+    doc.css(".post").first.css("p").text #description of first course
 
 
   end
