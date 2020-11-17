@@ -8,11 +8,6 @@ class Scraper
 
   def get_page
     doc = Nokogiri::HTML(open("http://learn-co-curriculum.github.io/site-for-scraping/courses"))
-    # binding.pry
-    doc.css(".post") #collection of course offerings--returns like an array
-    doc.css(".post").first.css("h2").text #title of ind course offering--first bc using first to get first element of our nokogiri "array"
-    doc.css(".post").first.css(".date").text #schedule of ind course offering (first course)
-    doc.css(".post").first.css("p").text #description of first course
 
     doc.css(".post").each do |post|
       course = Course.new
@@ -20,7 +15,6 @@ class Scraper
       course.schedule = post.css(".date").text
       course.description = post.css("p").text
     end
-
   end
 
   def print_courses
